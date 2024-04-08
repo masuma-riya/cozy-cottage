@@ -13,7 +13,7 @@ import img6 from '../../../assets/images/footer6.jpg';
 const Footer = () => {
     return (
 
-    <footer className="mt-28 text-center bg-slate-300 text-neutral-content">
+    <footer className="md:mt-24 mt-16 text-center bg-slate-300 text-neutral-content">
 
       {/* Find us On */}
 <i><p className="text-black font-bold text-3xl pt-5">Find Us On : </p></i>

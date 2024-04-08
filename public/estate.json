@@ -1,0 +1,110 @@
+[
+    {
+      "id": 1,
+      "estate_title": "Beachfront Villa",
+      "segment_name": "Resort",
+      "description": "Experience ultimate luxury in this stunning beachfront villa with breathtaking ocean views.",
+      "price": "$2,500 per night",
+      "status": "rent",
+      "area": "5000 sq ft",
+      "location": "Malibu, California",
+      "image": "https://i.ibb.co/WcCfyk1/image7.jpg",
+      "facilities": ["Private beach access", "Infinity pool", "Spa", "Gourmet kitchen", "Outdoor dining area"]
+    },
+    {
+      "id": 2,
+      "estate_title": "Paws and Claws",
+      "segment_name": "Lodge",
+      "description": "Escape to the tranquility of the mountains in this cozy lodge retreat surrounded by nature.",
+      "price": "$300 per night",
+      "status": "rent",
+      "area": "1500 sq ft",
+      "location": "Aspen, Colorado",
+      "image": "https://i.ibb.co/mh6Nkb4/image5.jpg",
+      "facilities": ["Fireplace", "Hot tub", "Hiking trails", "Gourmet breakfast included"]
+    },
+    {
+      "id": 3,
+      "estate_title": "Royal Palace Luxe",
+      "segment_name": "Hotel",
+      "description": "Indulge in luxury and sophistication at this stylish city hotel in the heart of downtown.",
+      "price": "$400 per night",
+      "status": "rent",
+      "area": "1000 sq ft",
+      "location": "New York City, New York",
+      "image": "https://i.ibb.co/9rB1y1B/image9.jpg",
+      "facilities": ["Rooftop bar", "Fitness center", "Fine dining restaurant", "Concierge service"]
+    },
+    {
+      "id": 4,
+      "estate_title": "Starlight Springs",
+      "segment_name": "Vacation Rental",
+      "description": "Relax and unwind in this charming seaside cottage overlooking the ocean.",
+      "price": "$200 per night",
+      "status": "rent",
+      "area": "800 sq ft",
+      "location": "Cape Cod, Massachusetts",
+      "image": "https://i.ibb.co/DkPRGHP/image2.jpg",
+      "facilities": ["Beach access", "Outdoor patio", "Fully equipped kitchen", "WiFi"]
+    },
+    {
+      "id": 5,
+      "estate_title": "Treetop Treasures",
+      "segment_name": "Guesthouse",
+      "description": "Experience warm hospitality and personalized service at this charming bed and breakfast.",
+      "price": "$150 per night",
+      "status": "rent",
+      "area": "1200 sq ft",
+      "location": "Charleston, South Carolina",
+      "image": "https://i.ibb.co/0Gfr7LB/image4.jpg",
+      "facilities": ["Homemade breakfast", "Cozy common areas", "Garden terrace", "Bike rentals available"]
+    },
+    {
+      "id": 6,
+      "estate_title": "Miami Beach, Florida",
+      "segment_name": "Motel",
+      "description": "Enjoy comfortable accommodations and convenient amenities at this classic roadside motel.",
+      "price": "$80 per night",
+      "status": "rent",
+      "area": "600 sq ft",
+      "location": "Route 66, Arizona",
+      "image": "https://i.ibb.co/gySPSyM/image3.jpg ",
+      "facilities": ["Outdoor pool", "Free parking", "Pet-friendly rooms", "Complimentary breakfast"]
+    },
+    {
+      "id": 7,
+      "estate_title": "Blissful Bay Resort",
+      "segment_name": "Resort",
+      "description": "Escape to this secluded mountain resort nestled in the scenic wilderness.",
+      "price": "$350 per night",
+      "status": "rent",
+      "area": "2000 sq ft",
+      "location": "Whistler, British Columbia",
+      "image": "https://i.ibb.co/R0V2Xd9/image1.jpg ",
+      "facilities": ["Ski-in/ski-out access", "Spa", "Fine dining restaurant", "Outdoor hot tubs"]
+    },
+    {
+      "id": 8,
+      "estate_title": "Sunny Lake Oasis",
+      "segment_name": "Vacation Rental",
+      "description": "Experience rustic charm and serenity in this cozy cabin retreat surrounded by towering trees.",
+      "price": "$180 per night",
+      "status": "rent",
+      "area": "1000 sq ft",
+      "location": "Lake Tahoe, California",
+      "image": "https://i.ibb.co/HhTb4yd/image6.jpg",
+      "facilities": ["Wood-burning fireplace", "Outdoor deck", "Fully equipped kitchen", "Hiking trails nearby"]
+    },
+    {
+      "id": 9,
+      "estate_title": "The Upper House",
+      "segment_name": "Hotel",
+      "description": "Immerse yourself in luxury and elegance at this boutique hotel overlooking the ocean.",
+      "price": "$500 per night",
+      "status": "rent",
+      "area": "1500 sq ft",
+      "location": "Miami Beach, Florida",
+      "image": "https://i.ibb.co/BTpLLtD/image8.jpg",
+      "facilities": ["Beachfront location", "Infinity pool", "Rooftop bar", "Gourmet dining options"]
+    }
+  ]
