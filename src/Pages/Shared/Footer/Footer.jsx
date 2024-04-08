@@ -13,7 +13,7 @@ import img6 from '../../../assets/images/footer6.jpg';
 const Footer = () => {
     return (
 
-    <footer className="text-center bg-slate-300 text-neutral-content">
+    <footer className="mt-28 text-center bg-slate-300 text-neutral-content">
 
       {/* Find us On */}
 <i><p className="text-black font-bold text-3xl pt-5">Find Us On : </p></i>
@@ -26,6 +26,7 @@ const Footer = () => {
      </div>
     </div>
 
+ {/* smile emoji */}
    <div className="md:flex gap-2 justify-center items-center">
    <h1 className="md:text-2xl text-xl font-normal text-black mt-10 mb-1">Adventure awaits – Explore more, Adore more !</h1>
     <BiWinkSmile className="text-black font-extralight text-3xl md:text-4xl md:mt-9 md:ml-0 ml-56 -mt-8"></BiWinkSmile>
