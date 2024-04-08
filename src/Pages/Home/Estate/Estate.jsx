@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const Estate = ({estates}) => {
     const {id, estate_title, segment_name, description, price, status, area,location, image, facilities} = estates;
     return (
@@ -15,3 +17,7 @@ const Estate = ({estates}) => {
 };
 
 export default Estate;
+
+Estate.propTypes = {
+  estates:PropTypes.object,
+}
