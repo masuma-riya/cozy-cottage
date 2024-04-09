@@ -13,7 +13,7 @@ import img6 from '../../../assets/images/footer6.jpg';
 const Footer = () => {
     return (
 
-    <footer className="md:mt-24 mt-16 text-center bg-slate-300 text-neutral-content">
+    <footer className="md:mt-28 mt-16 text-center bg-slate-300 text-neutral-content">
 
       {/* Find us On */}
 <i><p className="text-black font-bold text-3xl pt-5">Find Us On : </p></i>
@@ -26,10 +26,27 @@ const Footer = () => {
      </div>
     </div>
 
- {/* smile emoji */}
+      {/* Subscribe */}
+    <div className="lg:pt-12 pt-8">
+      <form>
+        <div  className="grid-cols-1 grid items-center gap-4 md:grid-cols-3">
+        <div className="md:mb-6 md:ml-auto"><p className="md:text-2xl text-xl font-bold text-purple-600">
+        <strong>Sign up for our newsletter</strong></p>
+    </div>
+          <div className="mb-4">
+          <input className="lg:px-9 md:px-0 md:py-2 px-2 py-2 lg:py-4 bg-orange-50 shadow-xl rounded-xl text-center text-2xl font-semibold" type="email" name="" placeholder="Email address" id="" />
+    </div>
+          <div className="mb-6 lg:mr-96">
+          <button className="btn btn-primary text-lg">SUBSCRIBE</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+      {/* p with smile emoji */}
    <div className="md:flex gap-2 justify-center items-center">
    <h1 className="md:text-2xl text-xl font-normal text-black mt-10 mb-1">Adventure awaits – Explore more, Adore more !</h1>
-    <BiWinkSmile className="text-black font-extralight text-3xl md:text-4xl md:mt-9 md:ml-0 ml-56 -mt-8"></BiWinkSmile>
+    <BiWinkSmile className="text-black font-extralight text-3xl md:text-4xl md:mt-9 md:ml-0 ml-60 -mt-8"></BiWinkSmile>
    </div>
 
       {/* image container */}
@@ -60,26 +77,9 @@ const Footer = () => {
     </div>
   </div>
 
-       {/* Subscribe */}
-     <div  className="py-3">
-      <form>
-        <div  className="grid-cols-1 grid items-center gap-4 md:grid-cols-3">
-        <div className="md:mb-6 md:ml-auto"><p className="md:text-2xl text-xl font-bold text-purple-600">
-        <strong>Sign up for our newsletter</strong></p>
-    </div>
-          <div className="md:mb-6">
-          <input className="lg:px-9 md:px-0 md:py-2 px-4 py-2 lg:py-4 bg-green-800 shadow-xl rounded-xl text-center text-xl font-bold" type="email" name="" placeholder="Email address" id="" />
-    </div>
-          <div className="mb-6">
-          <button className="btn btn-primary text-lg">SUBSCRIBE</button>
-      </div>
-    </div>
-  </form>
-</div>
-      
       {/* Copyright */}
-      <div className="p-4 text-center bg-black rounded-xl md:mx-4">© 2024 Copyright - All rights reserved
-     <i> <p className="text-neutral-400 mt-2 text-base font-bold">Cozy Cottage</p></i>
+      <div className="p-4 text-center bg-black rounded-xl text-xl md:text-2xl md:mx-4">© 2024 Copyright - All rights reserved
+     <i> <p className="text-neutral-400 mt-2 text-xl md:text-2xl font-bold">Cozy Cottage</p></i>
     </div>
 
     </footer>
