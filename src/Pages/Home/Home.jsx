@@ -5,7 +5,6 @@ import border from '../../assets/images/border.png';
 
 const Home = () => {
     const estates = useLoaderData();
-    console.log(estates)
     return (
     <div className="md:mt-16 mt-16 mb-16 w-11/12 m-auto text-center space-y-8">
         

@@ -1,6 +1,7 @@
 import { AiOutlineTwitter } from "react-icons/ai";
-import { BiLogoFacebook } from "react-icons/bi";
-import img from '../../assets/images/login_img-removebg-preview.png'
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
+import img from '../../assets/images/login_img-removebg-preview.png';
 
 const Login = () => {
     return (
@@ -10,17 +11,23 @@ const Login = () => {
 </div>
       <div className="md:w-1/3 max-w-sm text-center md:mt-9">
         <div>
-          <label className="mr-1 text-2xl font-bold">Sign in with</label>
-          <button className="mx-4 h-9 w-9 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-2xl">
-    <BiLogoFacebook size={20} className="flex justify-center items-center w-full"/></button>
-     <button className="h-9 w-9 rounded-full bg-blue-600 hover:bg-blue-700 text-white">
-    <AiOutlineTwitter size={20} className="flex justify-center items-center w-full"/></button>
+            <i><h1 className="lg:text-3xl text-2xl text-red-800 font-bold md:mb-4 mb-2 lg:mb-6">Please Login Now!</h1></i>
+          <label className="mr-1 text-xl lg:text-2xl font-bold lg:font-semibold">Sign in with</label>
+
+<button className="lg:mx-4 mx-2 h-8 w-8 rounded-full">
+<FcGoogle size={30} className="flex -mb-1 justify-center items-center w-full"/></button>
+
+<button className="lg:mx-4 mx-2 h-8 w-8 rounded-full">
+<FaGithub size={30} className="flex -mb-1 justify-center items-center w-full"/></button>
+
+<button className="lg:mx-4 md:mx-1 mx-2 h-8 w-8 rounded-full">
+<AiOutlineTwitter size={50} className="flex -mb-3 text-blue-500 justify-center items-center w-full"/></button>
         </div>
 
     <div className="my-8 flex text-center border-b-2 border-dashed border-y-2 border-slate-300">
     <p className="mx-auto text-2xl font-semibold text-black"><i>Or</i></p>
 </div>
-
+<form>
     <input className="text-lg font-semibold w-full px-4 py-2 border border-gray-400 rounded" type="email" name="email" placeholder="Email Address" required/>
 
     <input className="text-lg font-semibold w-full px-4 py-2 border border-gray-400 rounded mt-4" type="password" name="password" placeholder="Password"/>
@@ -30,15 +37,16 @@ const Login = () => {
     <input className="mr-2" type="checkbox" />
     <span>Remember Me</span>
     </p>
-       <a className="text-blue-600 hover:text-blue-700 hover:underline hover:underline-offset-4" href="/login">Forgot Password?</a>
+       <a className="text-blue-600 hover:text-blue-700 hover:underline hover:underline-offset-4" href="/login">Lost Password?</a>
     </div>
         <div className="text-center">
     <input className="mt-4 bg-blue-600 hover:bg-blue-700 px-4 py-2
- text-white rounded text-base font-bold" type="submit" name="submit" value="LOGIN" />
-
+ text-white rounded text-lg font-semibold" type="submit" name="submit" value="Login to your account" />
 </div>
+</form>
+
     <div className="mt-4 font-semibold lg:text-xl text-base text-slate-800 text-center"><i>Don&apos;t have an account?</i>{" "}
-    <a className="text-red-600 hover:underline hover:underline-offset-4" href="/register">REGISTER NOW</a>
+    <a className="text-red-600 hover:underline hover:underline-offset-4" href="/register">Register Here</a>
         </div>
       </div>
     </section>

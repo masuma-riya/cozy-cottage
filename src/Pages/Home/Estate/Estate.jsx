@@ -1,53 +1,48 @@
 import PropTypes from 'prop-types';
-import { IoLocationOutline } from "react-icons/io5";
-import { CgDollar } from "react-icons/cg";
-import { CiLocationArrow1 } from "react-icons/ci";
+import { ImHeart } from "react-icons/im";
+import { BiDollar } from "react-icons/bi";
+import { CiLocationOn } from "react-icons/ci";
+import { FaSquareArrowUpRight } from "react-icons/fa6";
 
 const Estate = ({estates}) => {
-    const {estate_title, segment_name, price, status, area, location, image, facilities} = estates;
+
+   const {estate_title, segment_name, price, status, area, location, image} = estates;
+
     return (
-        <div className="lg:mt-6 h-full card bg-base-100 shadow-xl w-11/12 m-auto">
+    <div className="lg:mt-6 h-full card shadow-xl w-11/12 m-auto">
+ 
+    <figure><img className="lg:h-80 h-56 md:h-52 w-full m-4 p-1 rounded-full bg-slate-400" src={image} alt="" /></figure>
 
-        {/* image */}
-    <figure><img className="lg:h-80 h-56 md:h-52 w-full mx-4 lg:rounded-2xl rounded-md shadow" src={image} alt="" /></figure>
-    <div className="card-body">
-
-        {/* Title */}
-    <h2 className="card-title lg:text-3xl text-start md:text-xl text-2xl font-extrabold">{estate_title}</h2>
-      
-        {/* Area */}
-    
-    <div className='flex gap-x-2 items-center justify-start mt-2 lg:text-[22px] text-[20px] text-red-900 font-bold mb-2'>
-      <CiLocationArrow1 className='text-yellow-600 lg:text-3xl text-2xl font-bold'></CiLocationArrow1>
-      {area}
+    <div className='py-1 ml-2 text-white font-bold rounded-xl  bg-purple-600 w-28'>{status}</div>
+    <div  className="p-4">
+    <h5  className="mb-4 text-2xl lg:text-3xl font-bold">{estate_title}</h5>
+    <i><h6  className="mb-4 text-2xl text-neutral-500 font-semibold lg:pt-1">{segment_name}</h6></i>
+    <div className='flex items-center justify-center'>
+    <BiDollar className='text-3xl text-green-700'></BiDollar>
+    <p className='text-2xl font-semibold text-green-600'>{price}</p>
     </div>
 
-        {/* Price */}
-    <p className='lg:text-2xl text-xl lg:mb-0 mb-4 text-neutral-600 flex gap-x-1 justify-start font-bold'><CgDollar className='lg:text-3xl text-2xl text-green-700'></CgDollar>{price}</p>
-    
-       {/* Segmant Name */}
-    <div className='flex justify-start gap-x-2'>
-   <div className=' bg-green-500 lg:rounded-full rounded-md text-white py-1 lg:text-lg font-bold lg:px-6 md:px-2 px-4 text-start mr-auto'>{segment_name}</div>
-
-     {/* Status */}
-<div className=' bg-violet-600 lg:rounded-xl text-white py-1 text-sm lg:text-xl font-semibold lg:px-6 md:px-2 px-4 text-start rounded-sm'>{status}</div>
+    <div className='flex lg:flex-row flex-col lg:space-y-0 space-y-2 items-center justify-around mt-3 text-xl font-semibold'>
+    <div className='flex lg:items-center gap-1 lg:gap-2 pt-2'>
+    <CiLocationOn className='md:text-3xl text-2xl text-red-700'></CiLocationOn>
+    <h1>{location}</h1>
     </div>
 
-
-     {/* Location */}
-    <i>
-    <div className='lg:text-xl text-lg flex lg:justify-center justify-start items-center gap-2 font-bold mx-auto mt-1'>
-    <IoLocationOutline className='lg:text-3xl md:text-5xl text-red-600 text-4xl'></IoLocationOutline>
-    {location}
+   <div className='flex lg:items-center gap-1 pt-2'>
+   <FaSquareArrowUpRight className='md:text-2xl text-2xl text-lime-600'></FaSquareArrowUpRight>
+   <h1>{area}</h1>
+   </div>
     </div>
-    </i>
-    {/* <div className='flex'>
-      {
-        facilities.map((facility, idx) => <div key={idx}> {facility} </div> )
-      }
-    </div> */}
+
   </div>
-</div>
+
+  <div  className="p-6 pt-0">
+  <button className="btn w-full bg-sky-600 text-white md:text-[15px] text-lg lg:text-lg font-bold hover:bg-sky-700 rounded-xl">View Property
+  <ImHeart className='text-red-600 md:text-base text-xl lg:text-2xl'></ImHeart>
+</button>
+  </div>
+
+</div>  
     );
 };
 

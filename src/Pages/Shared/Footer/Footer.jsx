@@ -34,7 +34,7 @@ const Footer = () => {
         <strong>Sign up for our newsletter</strong></p>
     </div>
           <div className="mb-4">
-          <input className="lg:px-9 md:px-0 md:py-2 px-2 py-2 lg:py-4 bg-orange-50 shadow-xl rounded-xl text-center text-2xl font-semibold" type="email" name="" placeholder="Email address" id="" />
+          <input className="lg:px-9 md:py-2 py-2 lg:py-4 bg-orange-50 shadow-xl rounded-xl text-center text-xl font-semibold" type="email" name="" placeholder="Email address" id="" />
     </div>
           <div className="mb-6 lg:mr-96">
           <button className="btn btn-primary text-lg">SUBSCRIBE</button>
@@ -50,7 +50,7 @@ const Footer = () => {
    </div>
 
       {/* image container */}
-      <div className="container p-6">
+      <div className="container p-6 lg:ml-7">
         <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-6">
           <div className="mb-3 lg:mb-0">
             <img src={img4} className="w-full rounded-md shadow-lg" />
