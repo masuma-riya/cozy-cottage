@@ -1,10 +1,70 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/images/logo2.png';
 import { AiOutlineTwitter } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import { useContext } from 'react';
+import { AuthContext } from '../../Routes/Context';
 
 const Register = () => {
+  
+  // Using context with AuthContext
+  const {createUser, googleLogin, githubLogin} = useContext(AuthContext);
+
+  // navigate after login
+  const navigate = useNavigate();
+
+   // Registration with email event handler
+    const handleRegister = e => {
+
+    // Prevent default Behaviour loading
+    e.preventDefault();
+
+    // Pick the form data
+    const form = new FormData(e.currentTarget);
+    const name = form.get('name');
+    const email = form.get('email');
+    const password = form.get('password');
+    const photoURL = form.get('photoURL');
+    const termsChecked = form.get('terms');
+    console.log(name, email, password, photoURL, termsChecked);
+
+    // Create New User
+    createUser(email, password)
+    .then(result =>{
+        console.log(result.user);
+        // Reset form field after Registration
+        e.target.reset();
+        // Go to home page after Registration
+        navigate('/');
+    })
+    .catch(error => {
+        console.error(error);
+    })
+    }
+
+  // Google Registration event handler
+  const handleGoogleLogin = () => {
+    googleLogin()
+    .then(result =>{
+      console.log(result.user);
+  })
+  .catch(error => {
+      console.error(error);
+  })
+  }
+
+  // Github Registration event handler
+  const handleGithubLogin = () => {
+    githubLogin()
+    .then(result =>{
+      console.log(result.user);
+  })
+  .catch(error => {
+      console.error(error);
+  })
+}
+
     return (
 
     <section className="h-full shadow-2xl md:bg-neutral-100 md:mx-8 mx-6 rounded-2xl max-w-6xl mt-24 lg:mx-auto">
@@ -29,10 +89,10 @@ const Register = () => {
  <label className="mr-1 ml-auto text-2xl text-orange-600 lg:text-2xl font-bold lg:font-semibold">Register with</label>
 
 <button className="lg:mx-4 mx-2 h-8 w-8 rounded-full">
-<FcGoogle size={30} className="flex -mb-1 justify-center items-center w-full"/></button>
+<FcGoogle onClick={handleGoogleLogin} size={30} className="flex -mb-1 justify-center items-center w-full"/></button>
 
 <button className="lg:mx-4 mx-2 h-8 w-8 rounded-full">
-<FaGithub size={30} className="flex -mb-1 justify-center items-center w-full"/></button>
+<FaGithub onClick={handleGithubLogin} size={30} className="flex -mb-1 justify-center items-center w-full"/></button>
 
 <button className="lg:mx-4 md:mx-1 mx-2 h-8 w-8 rounded-full">
 <AiOutlineTwitter size={50} className="flex -mb-3 text-blue-500 justify-center items-center w-full"/></button>
@@ -42,20 +102,20 @@ const Register = () => {
 <p className="mx-auto text-2xl font-semibold text-black"><i>Or</i></p>
   </div>    
 
-    <form className="text-center">
+    <form onSubmit={handleRegister} className="text-center">
 
-    <input className="text-lg border-neutral-300 border font-medium outline-pink-500 md:w-3/4 px-4 mb-6 py-2 rounded placeholder-pink-600" type="email" name="email" placeholder="Your Name" required/>
+    <input className="text-lg border-neutral-300 border font-medium outline-pink-500 md:w-3/4 px-4 mb-6 py-2 rounded placeholder-pink-600" type="text" name="name" placeholder="Your Name" required/>
 
     <input className="text-lg border-neutral-300 border font-medium outline-pink-500 md:w-3/4 px-4 mb-6 py-2 rounded placeholder-pink-600" type="email" name="email" placeholder="Your Email Address" required/>
 
-    <input className="text-lg border-neutral-300 border font-medium outline-pink-500 md:w-3/4 px-4 mb-6 py-2 rounded placeholder-pink-600" type="email" name="email" placeholder="Photo URL"/>
+    <input className="text-lg border-neutral-300 border font-medium outline-pink-500 md:w-3/4 px-4 mb-6 py-2 rounded placeholder-pink-600" type="text" name="photoURL" placeholder="Photo URL"/>
 
     <input  className="text-lg border-neutral-300 border  font-medium outline-pink-500 md:w-3/4 px-4 py-2 mb-6 rounded placeholder-pink-600" type="password" name="password" placeholder="Password" required/>
 
    <div className="md:flex md:space-x-0 space-x-3 items-center gap-3 justify-center">
-   <input className='md:h-4 md:w-4' type="checkbox" name="terms" id=""  />
+   <input className='md:h-4 md:w-4' type="checkbox" name="terms" id="terms"  />
   
-    <label className="md:text-xl font-medium">I accept the <Link to="/register" className="text-blue-700 hover:underline md:text-lg font-semibold" >Terms and Conditions</Link></label>
+    <label htmlFor='terms' className="md:text-xl font-medium">I accept the <Link to="/register" className="text-blue-700 hover:underline md:text-lg font-semibold" >Terms and Conditions</Link></label>
     </div>
     <input className='btn w-10/12 md:text-lg text-base font-medium mt-5 mb-4 hover:bg-indigo-700 bg-indigo-600 text-white' type="submit" value="Create an Account" />
 </form>

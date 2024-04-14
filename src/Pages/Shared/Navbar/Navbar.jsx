@@ -1,21 +1,34 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {IoMdMenu} from 'react-icons/io';
 import {IoClose } from 'react-icons/io5';
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FcHome } from "react-icons/fc";
 import './Navbar.css'
-import user from '../../../assets/images/user.png'
+import profile from '../../../assets/images/user.png'
+import { AuthContext } from "../../../Routes/Context";
 
 const Navbar = () => {
-
   const [open, setOpen] = useState(false);
 
+  // Using user from AuthContext
+  const {user, logOut} = useContext(AuthContext);
+
+  const handleSignOut = () => {
+   logOut()
+   .then(result =>{
+    console.log(result.user);
+})
+.catch(error => {
+    console.error(error)
+})
+  }
+  
   return (
     <div className="flex md:flex-row flex-col shadow rounded bg-pink-200 items-center lg:justify-between p-3 w-11/12 gap-3 mt-8 m-auto">
     <div className="flex justify-between gap-5 lg:gap-96 items-center">
 
     <div className="flex items-center">
-        <FcHome className="md:text-5xl lg:-mt-0 -mt-96 text-4xl lg:mx-3"></FcHome>
+        <FcHome className="md:text-5xl lg:-mt-0 -mt-[600px] text-4xl lg:mx-3"></FcHome>
       <h2 className="hide text-2xl font-bold">Cozy Cottage</h2></div>
   </div>
 
@@ -40,10 +53,7 @@ const Navbar = () => {
 
 <NavLink className={({isActive}) => isActive? 'md:text-lg text-base font-semibold text-purple-500' : 'md:text-lg text-base font-semibold'}  to="/update-profile">Update Profile</NavLink>
 
-<NavLink className={({isActive}) => isActive? 'md:text-lg text-base font-semibold text-purple-500' : 'md:text-lg text-base font-semibold'}  to="/update-profile">User Profile</NavLink>
-
-<NavLink className={({isActive}) => isActive? 'md:text-lg text-base font-semibold text-purple-500' : 'md:text-lg text-base font-semibold'}  to="/login">Login</NavLink>
-
+<NavLink className={({isActive}) => isActive? 'md:text-lg text-base font-semibold text-purple-500' : 'md:text-lg text-base font-semibold'}  to="/user-profile">User Profile</NavLink>
 
 <NavLink className={({isActive}) => isActive? 'md:text-lg text-base font-semibold text-purple-500' : 'md:text-lg text-base font-semibold'}  to="/our-services">Our Services</NavLink>
 
@@ -56,10 +66,20 @@ const Navbar = () => {
     <div className="flex md:mr-0 mr-[103px] items-center md:gap-3 gap-2">
     
 
-    <div className="avatar">
-      <div className="md:w-16 w-14 rounded-full">
-       <img src={user} />
-   </div>
+    <div className="avatar lg:-mx-0 lg:gap-6 gap-4 md:-mx-1 md:gap-1 flex items-center">
+
+      {/* Showing the user image when user is logged in */}
+     {
+      user &&  <div className="md:w-16  w-14 rounded-full">
+      <img src={profile} />
+  </div>
+     }
+
+     {/* Implement Login & Logout button condition */}
+  {
+    user ? <button onClick={handleSignOut} className="btn lg:text-lg text-base hover:bg-purple-600 bg-purple-500 border-none text-white font-bold">Logout</button> : <Link className="btn lg:text-lg text-base  hover:bg-purple-600  bg-purple-500 border-none text-white font-bold" to="/login">Login</Link>
+  
+  }
  </div>
 
     </div>
