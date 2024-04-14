@@ -48,6 +48,8 @@ const Register = () => {
     googleLogin()
     .then(result =>{
       console.log(result.user);
+  // Go to home page after google Registration
+       navigate('/');
   })
   .catch(error => {
       console.error(error);
@@ -59,6 +61,8 @@ const Register = () => {
     githubLogin()
     .then(result =>{
       console.log(result.user);
+  // Go to home page after github Registration
+       navigate('/');
   })
   .catch(error => {
       console.error(error);

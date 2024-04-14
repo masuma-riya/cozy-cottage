@@ -38,7 +38,7 @@ const Login = () => {
          // Reset form field after login
         e.target.reset();
 
-        // Go to home page after Login
+        // After login go to clicked state otherwish go to home page
         navigate(location?.state ? location.state : '/' );
     })
     .catch(error => {
@@ -51,17 +51,21 @@ const Login = () => {
     googleLogin()
     .then(result =>{
       console.log(result.user);
+   // After Google login go to clicked state otherwish go to home page
+   navigate(location?.state ? location.state : '/' );
   })
   .catch(error => {
       console.error(error);
   })
   }
 
-  // Github login event handler
+  // After Github login go to clicked state otherwish go to home page
   const handleGithubLogin = () => {
     githubLogin()
     .then(result =>{
       console.log(result.user);
+      //  Go to Home page after github Login
+      navigate(location?.state ? location.state : '/' );
   })
   .catch(error => {
       console.error(error);
