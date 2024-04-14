@@ -10,7 +10,6 @@ const Estate = ({estates}) => {
    const {id, estate_title, segment_name, price, status, area, location, image} = estates;
 
     return (
-    <Link to={`/estate-details/${id}`}>
     
 <div className="lg:mt-6 h-full card shadow-xl w-11/12 m-auto">
  
@@ -40,14 +39,12 @@ const Estate = ({estates}) => {
 </div>
 
 <div  className="p-6 pt-0">
-<button className="btn w-full bg-sky-600 text-white md:text-[15px] text-lg lg:text-lg font-bold hover:bg-sky-700 rounded-xl">View Property
+<Link to={`/estate-details/${id}`}><button className="btn w-full bg-sky-600 text-white md:text-[15px] text-lg lg:text-lg font-bold hover:bg-sky-700 rounded-xl">View Property
 <ImHeart className='text-red-600 md:text-base text-xl lg:text-2xl'></ImHeart>
-</button>
+</button></Link>
 </div>
 
 </div>  
-
-    </Link>
     );
 };
 

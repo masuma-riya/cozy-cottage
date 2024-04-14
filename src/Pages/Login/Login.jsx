@@ -4,12 +4,16 @@ import { FaGithub } from "react-icons/fa";
 import img from '../../assets/images/login_img-removebg-preview.png';
 import { useContext } from "react";
 import { AuthContext } from "../../Routes/Context";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
 
     // Using context with AuthContext
     const {loginUser, googleLogin, githubLogin} = useContext(AuthContext);
+
+    // Location
+    const location = useLocation();
+    console.log(location);
 
     // navigate after login
     const navigate = useNavigate();
@@ -35,7 +39,7 @@ const Login = () => {
         e.target.reset();
 
         // Go to home page after Login
-        navigate('/');
+        navigate(location?.state ? location.state : '/' );
     })
     .catch(error => {
         console.error(error);
@@ -97,7 +101,7 @@ const Login = () => {
     <input className="mr-2" type="checkbox" />
     <span>Remember Me</span>
     </p>
-       <a className="text-blue-600 hover:text-blue-700 hover:underline hover:underline-offset-4" href="/login">Lost Password?</a>
+       <a className="text-blue-600 hover:text-blue-700 hover:underline hover:underline-offset-4" href="#">Lost Password?</a>
     </div>
         <div className="text-center">
     <input className="mt-4 bg-blue-600 hover:bg-blue-700 px-4 py-2
