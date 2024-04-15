@@ -4,6 +4,7 @@ import { FaGithub } from "react-icons/fa";
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../Routes/Context';
 import { Helmet } from "react-helmet-async";
+import { IoEye, IoEyeOff } from "react-icons/io5";
 
 const Register = () => {
   
@@ -12,6 +13,9 @@ const Register = () => {
 
   const [registerError, setRegisterError] = useState('');
   const [registerSuccess, setRegisterSuccess] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+ 
 
   // navigate after login
   const navigate = useNavigate();
@@ -29,7 +33,8 @@ const Register = () => {
     const password = form.get('password');
     const photoURL = form.get('photoURL');
     const termsChecked = form.get('terms');
-    console.log(name, email, password, photoURL, termsChecked);
+    const confirmPassword = form.get('confirmPassword');
+    console.log(name, email, password, confirmPassword, photoURL, termsChecked);
 
     setRegisterError('');
     setRegisterSuccess('');
@@ -40,6 +45,16 @@ const Register = () => {
     }
     else if(!/(?=.*[a-z])(?=.*[A-Z]).+/.test(password)){
       setRegisterError('Password should be one Uppercase and Lowercase letter');
+      return;
+    }
+
+    else if(password !== confirmPassword){
+      setRegisterError('Password and Confirm password did not matched !');
+      return;
+    }
+
+    else if(!termsChecked){
+      setRegisterError('Please accept our Terms and Conditions !');
       return;
     }
 
@@ -93,7 +108,7 @@ const Register = () => {
 
     <section className="h-full md:mx-8 mx-6 rounded-2xl max-w-6xl mt-6 lg:mx-auto">
        <Helmet>
-        <title>Cozy Cottage | Register</title>
+        <title>Register | Cozy Cottage</title>
     </Helmet>
     <div className="container h-full md:p-10">
     <div className="flex h-full items-center justify-center">
@@ -102,7 +117,7 @@ const Register = () => {
     <div className="lg:flex">
 
     {/* Left side container */}
-    <div className="px-4 md:px-0 lg:w-6/12">
+    <div className="px-6 lg:w-6/12">
     <div className="md:mx-6">
 
     <div className='text-center'>
@@ -123,13 +138,33 @@ const Register = () => {
 
     <form onSubmit={handleRegister} className="text-center">
 
-    <input className="text-lg border-neutral-300 border font-medium outline-pink-500 md:w-3/4 px-4 mb-6 py-2 rounded placeholder-pink-600" type="text" name="name" placeholder="Your Name" required/>
+    <input className="text-lg border-neutral-300 border font-medium outline-pink-500 w-full px-4 mb-6 py-2 rounded placeholder-pink-600" type="text" name="name" placeholder="Your Name" required/>
 
-    <input className="text-lg border-neutral-300 border font-medium outline-pink-500 md:w-3/4 px-4 mb-6 py-2 rounded placeholder-pink-600" type="email" name="email" placeholder="Your Email Address" required/>
+    <input className="text-lg border-neutral-300 border font-medium outline-pink-500 w-full px-4 mb-6 py-2 rounded placeholder-pink-600" type="email" name="email" placeholder="Your Email Address" required/>
 
-    <input className="text-lg border-neutral-300 border font-medium outline-pink-500 md:w-3/4 px-4 mb-6 py-2 rounded placeholder-pink-600" type="text" name="photoURL" placeholder="Photo URL"/>
+    <input className="text-lg border-neutral-300 border font-medium outline-pink-500 w-full px-4 mb-6 py-2 rounded placeholder-pink-600" type="text" name="photoURL" placeholder="Photo URL"/>
 
-    <input  className="text-lg border-neutral-300 border  font-medium outline-pink-500 md:w-3/4 px-4 py-2 mb-6 rounded placeholder-pink-600" type="password" name="password" placeholder="Password" required/>
+{/* Password */}
+    <div className='relative mb-6'>
+    <input  className="text-lg border-neutral-300 border  font-medium outline-pink-500 w-full px-4 py-2 rounded placeholder-pink-600" type={showPassword ? "text" : "password"} name="password" placeholder="Password" required/>
+
+<span className='absolute top-3 right-10' onClick={() => setShowPassword(!showPassword)}>
+  {
+    showPassword ? <IoEyeOff className='text-2xl'></IoEyeOff > : <IoEye className='text-2xl'></IoEye>
+  }
+</span>
+    </div>
+
+{/* Confirm Password */}
+   <div className='relative mb-6'>
+   <input  className="text-lg border-neutral-300 border font-medium outline-pink-500 w-full px-4 py-2 rounded placeholder-pink-600" type={showConfirmPassword ? "text" : "password"} name="confirmPassword" placeholder="Confirm Password" required/>
+
+<span className='absolute top-3 right-10' onClick={() => setShowConfirmPassword(!showConfirmPassword)}>
+{
+showConfirmPassword ? <IoEyeOff className='text-2xl'></IoEyeOff > : <IoEye className='text-2xl'></IoEye>
+}
+</span>
+   </div>
 
    <div className="md:flex md:space-x-0 space-x-3 items-center gap-3 justify-center">
    <input className='md:h-4 md:w-4' type="checkbox" name="terms" id="terms"  />

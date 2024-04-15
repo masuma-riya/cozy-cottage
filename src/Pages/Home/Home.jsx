@@ -10,7 +10,7 @@ const Home = () => {
     <div className="mt-16 lg:mb-28 w-11/12 m-auto text-center space-y-8">
         
     <Helmet>
-        <title>Cozy Cottage | Home</title>
+        <title>Home | Cozy Cottage</title>
     </Helmet>
 
        <i> <h1 className="md:text-2xl text-lg text-orange-600 font-bold">Welcome to your gateway to exquisite properties and unparalleled hospitality!<br></br>Discover the seamless experiences with our premier real estate and hospitality services.</h1></i>

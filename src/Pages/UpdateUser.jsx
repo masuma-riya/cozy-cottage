@@ -27,7 +27,7 @@ const UpdateUser = () => {
     <div className="flex justify-around shadow-2xl bg-stone-50 w-10/12 border-none p-4 m-auto rounded-2xl items-center mt-14 mb-16">
 
 <Helmet>
-        <title>Cozy Cottage | Update Profile</title>
+        <title>Update Profile | Cozy Cottage</title>
     </Helmet>
 
 <div className="">

@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Routes/Context";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { IoEye, IoEyeOff } from "react-icons/io5";
 
 const Login = () => {
 
@@ -13,6 +14,7 @@ const Login = () => {
 
     const [loginSuccess, setLoginSuccess] = useState('');
     const [loginError, setLoginError] = useState('');
+    const [loginPasswordShow, setLoginPasswordShow] = useState(false);
 
 
     // Location
@@ -83,7 +85,7 @@ const Login = () => {
     return (
      <section className="flex flex-col md:flex-row justify-center md:space-x-24 items-center my-2 mx-5 md:mx-0 md:my-0">
          <Helmet>
-        <title>Cozy Cottage | Login</title>
+        <title>Login | Cozy Cottage</title>
     </Helmet>
      <div className="lg:w-1/3 md:w-80 w-72 max-w-sm text-center md:mt-9">
      <img src={img} alt=""/>
@@ -106,7 +108,15 @@ const Login = () => {
 <form onSubmit={handleLogin}>
     <input className="text-lg font-semibold w-full px-4 py-2 border border-gray-400 rounded" type="email" name="email" placeholder="Email Address" required/>
 
-    <input className="text-lg font-semibold w-full px-4 py-2 border border-gray-400 rounded mt-4" type="password" name="password" placeholder="Password"/>
+   <div className="relative mt-4">
+   <input className="text-lg font-semibold w-full px-4 py-2 border border-gray-400 rounded" type={loginPasswordShow ? "text" : "password"} name="password" placeholder="Password"/>
+
+<span className="absolute top-3 right-8" onClick={ () => setLoginPasswordShow(!loginPasswordShow)}>
+    {
+        loginPasswordShow ? <IoEyeOff className="text-2xl"></IoEyeOff> : <IoEye className="text-2xl"></IoEye>
+    }
+</span>
+   </div>
 
     <div className="md:mt-5 mt-6 flex justify-between font-semibold lg:text-lg text-base md:text-sm">
     <p className="flex text-slate-900">
