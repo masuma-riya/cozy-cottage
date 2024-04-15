@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../Firebase/firebase.config";
@@ -26,11 +27,20 @@ const Context = ({children}) => {
     }
 
     // Update profile
-    const updateUserProfile = (name, photo) => {
-        return updateProfile(auth.currentUser, {
-        displayName: name, 
-        photoURL: photo
-        })
+    const updateUserProfile = async (name, photo) => {
+        setLoading(true)
+     try {
+       await updateProfile(auth.currentUser, {
+            displayName: name, 
+            photoURL: photo,
+            })
+            const currentUsers = auth.currentUser
+            setUser(currentUsers)
+            setLoading(false)
+     } catch (error) {
+        console.log(error)
+        setLoading(false)
+     }
     }
 
     // Sign in user

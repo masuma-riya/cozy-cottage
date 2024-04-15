@@ -1,14 +1,19 @@
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import img from '../../assets/images/login_img-removebg-preview.png';
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Routes/Context";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
 
     // Using context with AuthContext
     const {loginUser, googleLogin, githubLogin} = useContext(AuthContext);
+
+    const [loginSuccess, setLoginSuccess] = useState('');
+    const [loginError, setLoginError] = useState('');
+
 
     // Location
     const location = useLocation();
@@ -29,11 +34,14 @@ const Login = () => {
     const password = form.get('password');
     console.log(email, password);
     
+    setLoginSuccess('')
+    setLoginError('')
+    
     // Login exciting User
     loginUser(email, password)
     .then(result =>{
         console.log(result.user)
-
+        setLoginSuccess('User logged in Successfully');
          // Reset form field after login
         e.target.reset();
 
@@ -42,6 +50,7 @@ const Login = () => {
     })
     .catch(error => {
         console.error(error);
+        setLoginError('Please check your Email or Password again :(')
     })
         }
 
@@ -73,6 +82,9 @@ const Login = () => {
 
     return (
      <section className="flex flex-col md:flex-row justify-center md:space-x-24 items-center my-2 mx-5 md:mx-0 md:my-0">
+         <Helmet>
+        <title>Cozy Cottage | Login</title>
+    </Helmet>
      <div className="lg:w-1/3 md:w-80 w-72 max-w-sm text-center md:mt-9">
      <img src={img} alt=""/>
 </div>
@@ -109,8 +121,15 @@ const Login = () => {
 </div>
 </form>
 
+{
+    loginSuccess && <p className='text-xl font-bold text-center pt-6 pb-2 text-green-600'>{loginSuccess}</p>
+}
+{
+    loginError && <p className='text-xl font-bold text-center pt-6 pb-2 text-red-600'>{loginError}</p>
+}
+
     <div className="mt-4 font-semibold lg:text-xl text-base text-slate-800 text-center"><i>Don&apos;t have an account?</i>{" "}
-    <a className="text-red-600 hover:underline hover:underline-offset-4" href="/register">Register Here</a>
+    <a className="text-blue-600 hover:underline hover:underline-offset-4" href="/register">Register Here</a>
         </div>
       </div>
     </section>

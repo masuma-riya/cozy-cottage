@@ -1,14 +1,17 @@
 import { Link, useNavigate } from 'react-router-dom';
-import logo from '../../assets/images/logo2.png';
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../Routes/Context';
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   
   // Using context with AuthContext
   const {createUser, updateUserProfile, googleLogin, githubLogin} = useContext(AuthContext);
+
+  const [registerError, setRegisterError] = useState('');
+  const [registerSuccess, setRegisterSuccess] = useState('');
 
   // navigate after login
   const navigate = useNavigate();
@@ -28,11 +31,23 @@ const Register = () => {
     const termsChecked = form.get('terms');
     console.log(name, email, password, photoURL, termsChecked);
 
+    setRegisterError('');
+    setRegisterSuccess('');
+
+    if(password.length < 6){
+      setRegisterError('! Password should be 6 characters or long !');
+      return;
+    }
+    else if(!/(?=.*[a-z])(?=.*[A-Z]).+/.test(password)){
+      setRegisterError('Password should be one Uppercase and Lowercase letter');
+      return;
+    }
+
     // Create New User
     createUser(email, password)
     .then(result =>{
         console.log(result.user);
-
+    setRegisterSuccess('User Created Successfully');
     // Update profile
      updateUserProfile(name, photoURL)
      .then( () => {
@@ -40,12 +55,13 @@ const Register = () => {
     e.target.reset();
     // Go to home page after Registration
         navigate('/'); 
-     });
-    });
-    // .catch(error => {
-    //     console.error(error);
-    // });
-    };
+     })
+    })
+    .catch(error => {
+      console.error(error);
+      setRegisterError(error.message);
+  });
+    }
 
   // Google Registration event handler
   const handleGoogleLogin = () => {
@@ -75,24 +91,22 @@ const Register = () => {
 
     return (
 
-    <section className="h-full shadow-2xl md:bg-neutral-100 md:mx-8 mx-6 rounded-2xl max-w-6xl mt-24 lg:mx-auto">
+    <section className="h-full md:mx-8 mx-6 rounded-2xl max-w-6xl mt-6 lg:mx-auto">
+       <Helmet>
+        <title>Cozy Cottage | Register</title>
+    </Helmet>
     <div className="container h-full md:p-10">
     <div className="flex h-full items-center justify-center">
     <div className="w-full">
-    <div className="rounded-lg bg-white shadow-lg">
+    <div className="rounded-3xl bg-white shadow-2xl">
     <div className="lg:flex">
 
     {/* Left side container */}
     <div className="px-4 md:px-0 lg:w-6/12">
     <div className="md:mx-6">
 
-    {/* img Logo */}
-    <div className="md:pt-10 pt-8 pb-8 md:pb-10">
-    <img className="mx-auto md:w-[400px] w-[500px] rounded-3xl" src={logo} alt="" />
-    </div>
-
     <div className='text-center'>
-<p className="mb-8 text-center text-2xl md:text-3xl font-semibold">Please Register an account!</p>
+<p className="mb-4 pt-8 text-center text-2xl md:text-3xl font-semibold">Please Register an account!</p>
 
  <label className="mr-1 ml-auto text-2xl text-orange-600 lg:text-2xl font-bold lg:font-semibold">Register with</label>
 
@@ -125,8 +139,16 @@ const Register = () => {
     <input className='btn w-10/12 md:text-lg text-base font-medium mt-5 mb-4 hover:bg-indigo-700 bg-indigo-600 text-white' type="submit" value="Create an Account" />
 </form>
 
+{
+  registerError && <i><p className='text-xl font-bold text-center pb-4 text-red-600'>{registerError}</p></i>
+}
+
+{
+  registerSuccess && <i><p className='text-xl font-semibold text-center pb-4 text-green-600'>{registerSuccess}</p></i>
+}
+
     <div className="pb-8 font-semibold md:text-xl text-base text-slate-800 text-center"><i>Already have an account?</i>{" "}
-    <a className="text-red-600 hover:underline hover:underline-offset-4" href="/login">Login Here</a>
+    <a className="text-blue-800 hover:underline hover:underline-offset-4" href="/login">Login Here</a>
     </div>
 
     </div>
