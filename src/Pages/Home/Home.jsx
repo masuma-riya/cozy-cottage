@@ -31,7 +31,7 @@ const Home = () => {
         {
             estates.map(estate => <Estate 
                 key={estate.id}
-                estates={estate}
+                estate={estate}
                 ></Estate> )
         }
        </div>

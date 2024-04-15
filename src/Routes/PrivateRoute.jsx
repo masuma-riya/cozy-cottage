@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import { useContext } from "react";
 import { AuthContext } from "./Context";
 import { Navigate, useLocation } from "react-router-dom";
 
 const PrivateRoute = ({children}) => {
  
-    // Loader
+    // Loader and user
     const {user, loading} = useContext(AuthContext);
 
     // Go to clicked route after login

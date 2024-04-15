@@ -13,7 +13,7 @@ const Banner = () => {
         spaceBetween={50}
         slidesPerView={1}
         navigation
-        speed={1200}
+        speed={1500}
         loop={true}
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}

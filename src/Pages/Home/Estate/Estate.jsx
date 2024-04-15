@@ -5,9 +5,9 @@ import { CiLocationOn } from "react-icons/ci";
 import { FaSquareArrowUpRight } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
 
-const Estate = ({estates}) => {
+const Estate = ({estate}) => {
 
-   const {id, estate_title, segment_name, price, status, area, location, image} = estates;
+   const {id, estate_title, segment_name, price, status, area, location, image} = estate;
 
     return (
     
@@ -55,5 +55,5 @@ const Estate = ({estates}) => {
 export default Estate;
 
 Estate.propTypes = {
-  estates:PropTypes.object,
+  estate:PropTypes.object,
 }
