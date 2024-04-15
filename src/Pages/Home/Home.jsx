@@ -6,7 +6,7 @@ import border from '../../assets/images/border.png';
 const Home = () => {
     const estates = useLoaderData();
     return (
-    <div className="md:mt-16 mt-16 mb-16 w-11/12 m-auto text-center space-y-8">
+    <div className="mt-16 lg:mb-28 w-11/12 m-auto text-center space-y-8">
         
        <i> <h1 className="md:text-2xl text-lg text-orange-600 font-bold">Welcome to your gateway to exquisite properties and unparalleled hospitality!<br></br>Discover the seamless experiences with our premier real estate and hospitality services.</h1></i>
         <h1 className="text-xl font-bold">Let us guide you through a world of elegance, comfort, and unmatched service.<br></br>Your dream destination awaits, right here.</h1>

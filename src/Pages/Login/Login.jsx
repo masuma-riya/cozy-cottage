@@ -1,4 +1,3 @@
-import { AiOutlineTwitter } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import img from '../../assets/images/login_img-removebg-preview.png';
@@ -87,9 +86,6 @@ const Login = () => {
 
 <button className="lg:mx-4 mx-2 h-8 w-8 rounded-full">
 <FaGithub onClick={handleGithubLogin} size={30} className="flex -mb-1 justify-center items-center w-full"/></button>
-
-<button className="lg:mx-4 md:mx-1 mx-2 h-8 w-8 rounded-full">
-<AiOutlineTwitter size={50} className="flex -mb-3 text-blue-500 justify-center items-center w-full"/></button>
         </div>
 
     <div className="my-8 flex text-center border-b-2 border-dashed border-y-2 border-slate-300">

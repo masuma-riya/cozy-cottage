@@ -13,10 +13,10 @@ import img6 from '../../../assets/images/footer6.jpg';
 const Footer = () => {
     return (
 
-    <footer className="md:mt-28 mt-16 text-center bg-slate-300 text-neutral-content">
+    <footer className="md:mt-10 mt-16 text-center bg-slate-800 text-neutral-content">
 
       {/* Find us On */}
-<i><p className="text-black font-bold text-3xl pt-5">Find Us On : </p></i>
+<i><p className="text-white font-bold text-3xl pt-5">Find Us On : </p></i>
     <div className="flex justify-around text-4xl pt-3">
       <FaFacebookSquare className="text-blue-600"></FaFacebookSquare>
       <IoLogoYoutube className="text-red-500"></IoLogoYoutube>
@@ -45,8 +45,8 @@ const Footer = () => {
 
       {/* p with smile emoji */}
    <div className="md:flex gap-2 justify-center items-center">
-   <h1 className="md:text-2xl text-xl font-normal text-black mt-10 mb-1">Adventure awaits – Explore more, Adore more !</h1>
-    <BiWinkSmile className="text-black font-extralight text-3xl md:text-4xl md:mt-9 md:ml-0 ml-60 -mt-8"></BiWinkSmile>
+   <h1 className="md:text-2xl text-xl font-normal text-white mt-10 mb-1">Adventure awaits – Explore more, Adore more !</h1>
+    <BiWinkSmile className="text-slate-400 font-extralight text-3xl md:text-4xl md:mt-9 md:ml-0 ml-60 -mt-8"></BiWinkSmile>
    </div>
 
       {/* image container */}

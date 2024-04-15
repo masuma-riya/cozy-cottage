@@ -4,7 +4,6 @@ import {IoClose } from 'react-icons/io5';
 import { Link, NavLink } from "react-router-dom";
 import { FcHome } from "react-icons/fc";
 import './Navbar.css'
-import profile from '../../../assets/images/user.png'
 import { AuthContext } from "../../../Routes/Context";
 
 const Navbar = () => {
@@ -53,8 +52,6 @@ const Navbar = () => {
 
 <NavLink className={({isActive}) => isActive? 'md:text-lg text-base font-semibold text-purple-500' : 'md:text-lg text-base font-semibold'}  to="/update-profile">Update Profile</NavLink>
 
-<NavLink className={({isActive}) => isActive? 'md:text-lg text-base font-semibold text-purple-500' : 'md:text-lg text-base font-semibold'}  to="/user-profile">User Profile</NavLink>
-
 <NavLink className={({isActive}) => isActive? 'md:text-lg text-base font-semibold text-purple-500' : 'md:text-lg text-base font-semibold'}  to="/our-services">Our Services</NavLink>
 
 <NavLink className={({isActive}) => isActive? 'md:text-lg text-base   font-semibold text-purple-500' : 'md:text-lg text-base font-semibold'}  to="/contact-us">About Us</NavLink>
@@ -70,8 +67,8 @@ const Navbar = () => {
 
       {/* Showing the user image when user is logged in */}
      {
-      user &&  <div className="md:w-16  w-14 rounded-full">
-      <img src={profile} />
+      user &&  <div className="md:w-16 w-14">
+      <img className="border-2 rounded-full border-blue-600 p-1" src={user?.photoURL || "https://i.ibb.co/FBZQVTZ/defalt.jpg"} />
   </div>
      }
 

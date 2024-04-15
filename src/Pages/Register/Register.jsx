@@ -1,6 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/images/logo2.png';
-import { AiOutlineTwitter } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { useContext } from 'react';
@@ -9,7 +8,7 @@ import { AuthContext } from '../../Routes/Context';
 const Register = () => {
   
   // Using context with AuthContext
-  const {createUser, googleLogin, githubLogin} = useContext(AuthContext);
+  const {createUser, updateUserProfile, googleLogin, githubLogin} = useContext(AuthContext);
 
   // navigate after login
   const navigate = useNavigate();
@@ -33,15 +32,20 @@ const Register = () => {
     createUser(email, password)
     .then(result =>{
         console.log(result.user);
-        // Reset form field after Registration
-        e.target.reset();
-        // Go to home page after Registration
-        navigate('/');
-    })
-    .catch(error => {
-        console.error(error);
-    })
-    }
+
+    // Update profile
+     updateUserProfile(name, photoURL)
+     .then( () => {
+    // Reset form field after Registration
+    e.target.reset();
+    // Go to home page after Registration
+        navigate('/'); 
+     });
+    });
+    // .catch(error => {
+    //     console.error(error);
+    // });
+    };
 
   // Google Registration event handler
   const handleGoogleLogin = () => {
@@ -97,9 +101,6 @@ const Register = () => {
 
 <button className="lg:mx-4 mx-2 h-8 w-8 rounded-full">
 <FaGithub onClick={handleGithubLogin} size={30} className="flex -mb-1 justify-center items-center w-full"/></button>
-
-<button className="lg:mx-4 md:mx-1 mx-2 h-8 w-8 rounded-full">
-<AiOutlineTwitter size={50} className="flex -mb-3 text-blue-500 justify-center items-center w-full"/></button>
         </div>
 
 <div className="my-8 flex text-center border-b-2 border-dashed border-y-2 border-slate-300">
