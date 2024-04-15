@@ -6,13 +6,14 @@ import { AuthContext } from "../../Routes/Context";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { IoEye, IoEyeOff } from "react-icons/io5";
+import { toast } from 'react-toastify';
+
 
 const Login = () => {
 
     // Using context with AuthContext
     const {loginUser, googleLogin, githubLogin} = useContext(AuthContext);
 
-    const [loginSuccess, setLoginSuccess] = useState('');
     const [loginError, setLoginError] = useState('');
     const [loginPasswordShow, setLoginPasswordShow] = useState(false);
 
@@ -36,14 +37,13 @@ const Login = () => {
     const password = form.get('password');
     console.log(email, password);
     
-    setLoginSuccess('')
     setLoginError('')
     
     // Login exciting User
     loginUser(email, password)
     .then(result =>{
         console.log(result.user)
-        setLoginSuccess('User logged in Successfully');
+        toast.success('User logged in Successfully!')
          // Reset form field after login
         e.target.reset();
 
@@ -52,7 +52,7 @@ const Login = () => {
     })
     .catch(error => {
         console.error(error);
-        setLoginError('Please check your Email or Password again :(')
+        setLoginError('Please check Email or Password again!')
     })
         }
 
@@ -61,6 +61,7 @@ const Login = () => {
     googleLogin()
     .then(result =>{
       console.log(result.user);
+      toast.success('Google Login Successful!')
    // After Google login go to clicked state otherwish go to home page
    navigate(location?.state ? location.state : '/' );
   })
@@ -74,6 +75,7 @@ const Login = () => {
     githubLogin()
     .then(result =>{
       console.log(result.user);
+      toast.success('Github Login Successful!')
       //  Go to Home page after github Login
       navigate(location?.state ? location.state : '/' );
   })
@@ -118,25 +120,21 @@ const Login = () => {
 </span>
    </div>
 
-    <div className="md:mt-5 mt-6 flex justify-between font-semibold lg:text-lg text-base md:text-sm">
+    <div className="md:mt-5 mt-6 flex gap-2 items-center justify-between font-semibold">
     <p className="flex text-slate-900">
     <input className="mr-2" type="checkbox" />
-    <span>Remember Me</span>
+    <span className="text-base md:text-sm lg:text-lg">Remember Me</span>
     </p>
-       <a className="text-blue-600 hover:text-blue-700 hover:underline hover:underline-offset-4" href="#">Lost Password?</a>
+       <a className="text-blue-600 lg:text-lg text-base hover:text-blue-700 hover:underline hover:underline-offset-4" href="#">Lost Password?</a>
     </div>
+
+    {
+    loginError && <p className='lg:text-xl text-lg font-bold text-center lg:pt-6 pt-4 lg:pb-2 text-red-600'>{loginError}</p>
+}
         <div className="text-center">
-    <input className="mt-4 bg-blue-600 hover:bg-blue-700 px-4 py-2
- text-white rounded text-lg font-semibold" type="submit" name="submit" value="Login to your account" />
+    <input className="mt-4 bg-blue-600 hover:bg-blue-700 px-2 py-1 lg:px-4 lg:py-2 text-white rounded text-lg font-semibold" type="submit" name="submit" value="Login to your account" />
 </div>
 </form>
-
-{
-    loginSuccess && <p className='text-xl font-bold text-center pt-6 pb-2 text-green-600'>{loginSuccess}</p>
-}
-{
-    loginError && <p className='text-xl font-bold text-center pt-6 pb-2 text-red-600'>{loginError}</p>
-}
 
     <div className="mt-4 font-semibold lg:text-xl text-base text-slate-800 text-center"><i>Don&apos;t have an account?</i>{" "}
     <a className="text-blue-600 hover:underline hover:underline-offset-4" href="/register">Register Here</a>

@@ -5,6 +5,7 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../Routes/Context';
 import { Helmet } from "react-helmet-async";
 import { IoEye, IoEyeOff } from "react-icons/io5";
+import { toast } from 'react-toastify';
 
 const Register = () => {
   
@@ -12,7 +13,6 @@ const Register = () => {
   const {createUser, updateUserProfile, googleLogin, githubLogin} = useContext(AuthContext);
 
   const [registerError, setRegisterError] = useState('');
-  const [registerSuccess, setRegisterSuccess] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
  
@@ -37,24 +37,23 @@ const Register = () => {
     console.log(name, email, password, confirmPassword, photoURL, termsChecked);
 
     setRegisterError('');
-    setRegisterSuccess('');
 
     if(password.length < 6){
-      setRegisterError('! Password should be 6 characters or long !');
+      setRegisterError('! Password should be at least 6 characters or longer !');
       return;
     }
     else if(!/(?=.*[a-z])(?=.*[A-Z]).+/.test(password)){
-      setRegisterError('Password should be one Uppercase and Lowercase letter');
+      setRegisterError('! Password needs at least One Upper and Lowercase letters !');
       return;
     }
 
     else if(password !== confirmPassword){
-      setRegisterError('Password and Confirm password did not matched !');
+      setRegisterError('! Password and Confirm password did not matched !');
       return;
     }
 
     else if(!termsChecked){
-      setRegisterError('Please accept our Terms and Conditions !');
+      setRegisterError('! Please accept our Terms and Conditions !');
       return;
     }
 
@@ -62,7 +61,7 @@ const Register = () => {
     createUser(email, password)
     .then(result =>{
         console.log(result.user);
-    setRegisterSuccess('User Created Successfully');
+        toast.success('Congratulation! Registration Successful :)')
     // Update profile
      updateUserProfile(name, photoURL)
      .then( () => {
@@ -83,6 +82,7 @@ const Register = () => {
     googleLogin()
     .then(result =>{
       console.log(result.user);
+      toast.success('Google Registration Success!');
   // Go to home page after google Registration
        navigate('/');
   })
@@ -96,6 +96,7 @@ const Register = () => {
     githubLogin()
     .then(result =>{
       console.log(result.user);
+      toast.success('Github Registration Success!')
   // Go to home page after github Registration
        navigate('/');
   })
@@ -106,24 +107,17 @@ const Register = () => {
 
     return (
 
-    <section className="h-full md:mx-8 mx-6 rounded-2xl max-w-6xl mt-6 lg:mx-auto">
-       <Helmet>
+    <div className="flex lg:w-6/12 md:w-8/12 w-11/12 justify-center mt-2 m-auto">
+
+      <Helmet>
         <title>Register | Cozy Cottage</title>
     </Helmet>
-    <div className="container h-full md:p-10">
-    <div className="flex h-full items-center justify-center">
-    <div className="w-full">
-    <div className="rounded-3xl bg-white shadow-2xl">
-    <div className="lg:flex">
 
-    {/* Left side container */}
-    <div className="px-6 lg:w-6/12">
-    <div className="md:mx-6">
-
+    <div>
     <div className='text-center'>
-<p className="mb-4 pt-8 text-center text-2xl md:text-3xl font-semibold">Please Register an account!</p>
+   <p className="mb-4 pt-8 text-center text-[22px] md:text-[27px] md:font-semibold font-bold">Please Register an account!</p>
 
- <label className="mr-1 ml-auto text-2xl text-orange-600 lg:text-2xl font-bold lg:font-semibold">Register with</label>
+ <label className="mr-1 ml-auto text-xl text-orange-600 lg:text-2xl font-bold lg:font-semibold">Continue with</label>
 
 <button className="lg:mx-4 mx-2 h-8 w-8 rounded-full">
 <FcGoogle onClick={handleGoogleLogin} size={30} className="flex -mb-1 justify-center items-center w-full"/></button>
@@ -132,11 +126,7 @@ const Register = () => {
 <FaGithub onClick={handleGithubLogin} size={30} className="flex -mb-1 justify-center items-center w-full"/></button>
         </div>
 
-<div className="my-8 flex text-center border-b-2 border-dashed border-y-2 border-slate-300">
-<p className="mx-auto text-2xl font-semibold text-black"><i>Or</i></p>
-  </div>    
-
-    <form onSubmit={handleRegister} className="text-center">
+    <form className="text-center mb-3 rounded-3xl bg-white shadow-xl pt-8 pb-3 px-8" onSubmit={handleRegister}>
 
     <input className="text-lg border-neutral-300 border font-medium outline-pink-500 w-full px-4 mb-6 py-2 rounded placeholder-pink-600" type="text" name="name" placeholder="Your Name" required/>
 
@@ -148,9 +138,9 @@ const Register = () => {
     <div className='relative mb-6'>
     <input  className="text-lg border-neutral-300 border  font-medium outline-pink-500 w-full px-4 py-2 rounded placeholder-pink-600" type={showPassword ? "text" : "password"} name="password" placeholder="Password" required/>
 
-<span className='absolute top-3 right-10' onClick={() => setShowPassword(!showPassword)}>
+<span className='absolute top-3 md:right-10 right-4' onClick={() => setShowPassword(!showPassword)}>
   {
-    showPassword ? <IoEyeOff className='text-2xl'></IoEyeOff > : <IoEye className='text-2xl'></IoEye>
+    showPassword ? <IoEyeOff className='md:text-2xl text-xl'></IoEyeOff > : <IoEye className='md:text-2xl text-xl'></IoEye>
   }
 </span>
     </div>
@@ -159,9 +149,9 @@ const Register = () => {
    <div className='relative mb-6'>
    <input  className="text-lg border-neutral-300 border font-medium outline-pink-500 w-full px-4 py-2 rounded placeholder-pink-600" type={showConfirmPassword ? "text" : "password"} name="confirmPassword" placeholder="Confirm Password" required/>
 
-<span className='absolute top-3 right-10' onClick={() => setShowConfirmPassword(!showConfirmPassword)}>
+<span className='absolute top-3 md:right-10 right-4' onClick={() => setShowConfirmPassword(!showConfirmPassword)}>
 {
-showConfirmPassword ? <IoEyeOff className='text-2xl'></IoEyeOff > : <IoEye className='text-2xl'></IoEye>
+showConfirmPassword ? <IoEyeOff className='md:text-2xl text-xl'></IoEyeOff > : <IoEye className='md:text-2xl text-xl'></IoEye>
 }
 </span>
    </div>
@@ -171,41 +161,20 @@ showConfirmPassword ? <IoEyeOff className='text-2xl'></IoEyeOff > : <IoEye class
   
     <label htmlFor='terms' className="md:text-xl font-medium">I accept the <Link to="/register" className="text-blue-700 hover:underline md:text-lg font-semibold" >Terms and Conditions</Link></label>
     </div>
+
+    {
+  registerError && <i><p className='lg:text-xl text-lg pt-4 pb-1 font-bold text-center text-red-600'>{registerError}</p></i>
+}
+
     <input className='btn w-10/12 md:text-lg text-base font-medium mt-5 mb-4 hover:bg-indigo-700 bg-indigo-600 text-white' type="submit" value="Create an Account" />
 </form>
-
-{
-  registerError && <i><p className='text-xl font-bold text-center pb-4 text-red-600'>{registerError}</p></i>
-}
-
-{
-  registerSuccess && <i><p className='text-xl font-semibold text-center pb-4 text-green-600'>{registerSuccess}</p></i>
-}
 
     <div className="pb-8 font-semibold md:text-xl text-base text-slate-800 text-center"><i>Already have an account?</i>{" "}
     <a className="text-blue-800 hover:underline hover:underline-offset-4" href="/login">Login Here</a>
     </div>
-
     </div>
     </div>
 
-    {/* Right side container */}
-    <div className="flex items-center rounded-b-xl lg:w-6/12 lg:rounded-e-xl lg:rounded-bl-none" style={{background: 'linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593)'}}>
-    <div className="px-4 py-6 text-white md:mx-6 md:p-12">
-    <h4 className="mb-6 text-xl font-semibold">We are more than just a company</h4>
-    <p className="text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing
-    elit, sed do eiusmod tempor incididunt ut labore et
-    dolore magna aliqua. Ut enim ad minim veniam, quis
-    nostrud exercitation ullamco laboris nisi ut aliquip ex
-    ea commodo consequat.</p>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </section>
     );
 };
 
