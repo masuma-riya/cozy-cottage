@@ -1,20 +1,15 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import {IoMdMenu} from 'react-icons/io';
 import {IoClose } from 'react-icons/io5';
 import { Link, NavLink } from "react-router-dom";
 import { FcHome } from "react-icons/fc";
 import './Navbar.css'
 import { AuthContext } from "../../../Routes/Context";
-import Aos from 'aos';
-import 'aos/dist/aos.css'
+import 'animate.css';
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [showUsername, setShowUsername] = useState(false); 
-
-  useEffect(() => {
-    Aos.init({duration: 1000})
-   },[])
 
   // Using user from AuthContext
   const {user, logOut} = useContext(AuthContext);
@@ -30,7 +25,7 @@ const Navbar = () => {
   }
   
   return (
-    <div data-aos="flip-right" className="flex md:flex-row flex-col shadow rounded items-center lg:justify-between p-3 w-11/12 gap-3 mt-8 m-auto">
+    <div className="flex animate__animated animate__pulse md:flex-row flex-col shadow rounded items-center lg:justify-between p-3 w-11/12 gap-3 mt-8 m-auto">
     <div className="flex justify-between gap-5 lg:gap-96 items-center">
 
     <div className="flex items-center">

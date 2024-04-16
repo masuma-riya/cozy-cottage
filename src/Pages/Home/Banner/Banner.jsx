@@ -7,9 +7,19 @@ import slider1 from '../../../assets/images/slider1.jpg';
 import slider2 from '../../../assets/images/slider2.jpg';
 import slider3 from '../../../assets/images/slider3.jpg';
 
+import Aos from 'aos';
+import 'aos/dist/aos.css'
+import { useEffect } from "react";
+
 const Banner = () => {
+
+  useEffect(() => {
+    Aos.init({duration: 1500, easing: "linear"
+});
+   },[]);
+
     return (
-        <Swiper modules={[Navigation, Pagination, Scrollbar, A11y]}
+        <Swiper data-aos="zoom-out" modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={50}
         slidesPerView={1}
         navigation

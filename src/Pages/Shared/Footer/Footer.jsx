@@ -1,88 +1,110 @@
 import { FaFacebookSquare, FaTwitter } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io5";
-import { BiWinkSmile } from "react-icons/bi";
-import gmail from '../../../assets/images/gmail.png';
-import img1 from '../../../assets/images/footer1.jpg';
-import img2 from '../../../assets/images/footer2.jpg';
-import img3 from '../../../assets/images/footer3.jpg';
-import img4 from '../../../assets/images/footer4.jpg';
-import img5 from '../../../assets/images/footer5.jpg';
-import img6 from '../../../assets/images/footer6.jpg';
-
+import 'animate.css';
 
 const Footer = () => {
     return (
 
-    <footer className="md:mt-10 mt-8 text-center bg-slate-800 text-neutral-content">
-
-      {/* Find us On */}
-<i><p className="text-white font-bold text-3xl pt-5">Find Us On : </p></i>
-    <div className="flex justify-around text-4xl pt-3">
-      <FaFacebookSquare className="text-blue-600"></FaFacebookSquare>
-      <IoLogoYoutube className="text-red-500"></IoLogoYoutube>
-      <FaTwitter className="text-blue-700"></FaTwitter>
-     <div>
-     <img className="w-10" src={gmail} alt="" />
-     </div>
-    </div>
-
-      {/* Subscribe */}
-    <div className="lg:pt-12 pt-8">
-      <form>
-        <div  className="grid-cols-1 grid items-center gap-4 md:grid-cols-3">
-        <div className="md:mb-6 md:ml-auto"><p className="md:text-2xl text-xl font-bold text-purple-600">
-        <strong>Sign up for our newsletter</strong></p>
-    </div>
-          <div className="mb-4">
-          <input className="lg:px-9 md:py-2 py-2 lg:py-4 bg-orange-50 shadow-xl rounded-xl text-center text-xl font-semibold" type="email" name="" placeholder="Email address" id="" />
-    </div>
-          <div className="mb-6 lg:mr-96">
-          <button className="btn btn-primary text-lg">SUBSCRIBE</button>
-      </div>
-    </div>
-  </form>
+<div className="bg-gray-900">
+<div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+<div className="grid row-gap-10 mb-8 lg:grid-cols-6">
+<div className="grid grid-cols-2 animate__animated animate__slideInLeft gap-6  row-gap-8 lg:col-span-4 md:grid-cols-4">
+<div>
+<p className="font-medium  text-gray-300">Guest Experiences</p>
+<ul className="mt-2 space-y-2">
+<li>
+  <a href="/" className="text-gray-500">Testimonials</a>
+</li>
+<li>
+  <a href="/" className="text-gray-500">Architectural</a>
+</li>
+<li>
+  <a href="/" className="text-gray-500">Reviews</a>
+</li>
+<li>
+  <a href="/" className="text-gray-500">Guest stories</a>
+</li>
+</ul>
 </div>
+<div>
+<p className="font-medium text-gray-300">Exclusive Offers</p>
+<ul className="mt-2 space-y-2">
+<li>
+  <a href="/" className="text-gray-500">Amenities</a>
+</li>
+<li>
+  <a href="/" className="text-gray-500">Special packages</a>
+</li>
+<li>
+  <a href="/" className="text-gray-500">Seasonal deals</a>
+</li>
+<li>
+  <a href="/" className="text-gray-500">Bookings </a>
+</li>
+<li>
+  <a href="/" className="text-gray-500">Promotions</a>
+</li>
+</ul>
+</div>
+<div>
+<p className="font-medium text-gray-300">Event Spaces</p>
+<ul className="mt-2 space-y-2">
+<li>
+  <a href="/" className="text-gray-500">Venue</a>
+</li>
+<li>
+  <a href="/" className="text-gray-500">Event planning</a>
+</li>
+<li>
+  <a href="/" className="text-gray-500">Corporate event</a>
+</li>
+<li>
+  <a href="/" className="text-gray-500">Family activities</a>
+</li>
+<li>
+  <a href="/" className="text-gray-500">Kid-friendly</a>
+</li>
+</ul>
+</div>
+<div>
+<p className="font-medium text-gray-300">Local Partnerships</p>
+<ul className="mt-2 space-y-2">
+<li>
+  <a href="/" className="text-gray-500">Collaborations</a>
+</li>
+<li>
+  <a href="/" className="text-gray-500">Local Business</a>
+</li>
+<li>
+  <a href="/" className="text-gray-500">Partner Discounts</a>
+</li>
+<li>
+  <a href="/" className="text-gray-500">Joint promotions</a>
+</li>
+</ul>
+</div>
+</div>
+<div className="md:max-w-md lg:col-span-2 lg:mt-0 mt-8">
+<span className="text-base font-medium text-gray-300">Subscribe for updates</span>
+<form className="flex flex-col mt-4 md:flex-row">
+<input placeholder="Email" required type="text" className="flex-grow w-full h-12 px-4 mb-3 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none md:mr-2 md:mb-0 focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline" />
+<button type="submit" className="inline-flex items-center justify-center h-12 px-6 font-medium  text-white rounded shadow-md bg-blue-700">
+Subscribe
+</button>
+</form>
+<p className="mt-4 text-base text-gray-500">Discover your dream home with us.  Hope you can perfect match of yours today!</p>
+</div>
+</div>
+<div className="animate__animated animate__bounce flex flex-col justify-between pt-5 pb-10 border-t border-gray-800 sm:flex-row"><p className="text-xl text-stone-200 font-bold">© Copyright 2024 Cozy Cottage. All rights reserved !</p>
 
-      {/* p with smile emoji */}
-   <div className="md:flex gap-2 justify-center items-center">
-   <h1 className="md:text-2xl text-xl font-normal text-white mt-10 mb-1">Adventure awaits – Explore more, Adore more !</h1>
-    <BiWinkSmile className="text-slate-400 font-extralight text-3xl md:text-4xl md:mt-9 md:ml-0 ml-60 -mt-8"></BiWinkSmile>
-   </div>
-
-      {/* image container */}
-      <div className="container p-6 lg:ml-7">
-        <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-6">
-          <div className="mb-3 lg:mb-0">
-            <img src={img4} className="w-full rounded-md shadow-lg" />
-      </div>
-        <div className="mb-3 lg:mb-0">
-          <img src={img6} className="w-full rounded-md shadow-lg" />
-      </div>
-        <div className="mb-3 lg:mb-0">
-          <img src={img3}
-          className="w-full rounded-md shadow-lg" />
-      </div>
-        <div className="mb-3 lg:mb-0">
-          <img src={img1}
-          className="w-full h-[125px] rounded-md shadow-lg" />
-      </div>
-          <div className="mb-3 lg:mb-0">
-            <img src={img5}
-            className="w-full rounded-md shadow-lg" />
-      </div>
-          <div className="mb- lg:mb-0">
-            <img src={img2}
-            className="w-full rounded-md shadow-lg" />
-      </div>
-    </div>
-  </div>
-
-      {/* Copyright */}
-      <div className="p-4 text-center bg-black rounded-xl text-xl md:text-2xl md:mx-4">© 2024 Copyright - All rights reserved
-     <i> <p className="text-neutral-400 mt-2 text-xl md:text-2xl font-bold">Cozy Cottage</p></i>
-    </div>
-
-    </footer>
+<div className="lg:flex gap-4 items-center mt-4 lg:space-y-0 space-y-4 lg:space-x-4 sm:mt-0">
+<FaFacebookSquare className="text-4xl text-blue-800"></FaFacebookSquare>
+<IoLogoYoutube className="text-4xl text-red-800"></IoLogoYoutube>
+<FaTwitter className="text-4xl text-blue-800"></FaTwitter>
+</div>
+</div>
+</div>
+</div>
     );
 };
 

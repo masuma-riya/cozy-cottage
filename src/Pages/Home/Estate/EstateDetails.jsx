@@ -18,12 +18,12 @@ import { useEffect } from "react";
     console.log(detail);
 
     useEffect(() => {
-      Aos.init({duration: 1500, easing: "linear"
+      Aos.init({duration: 1000, easing: "linear"
 });
      },[]);
 
     return (
- <div data-aos="fade-left" className="md:flex rounded-xl bg-white text-gray-700 shadow-2xl w-11/12 m-auto mt-14 mb-16 flex-row">
+ <div data-aos="zoom-in-right" className="md:flex rounded-xl bg-white text-gray-700 shadow-2xl w-11/12 m-auto mt-14 mb-16 flex-row">
 
 <Helmet>
         <title>Estate-details | Cozy Cottage</title>
