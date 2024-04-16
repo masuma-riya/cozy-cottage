@@ -1,13 +1,20 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {IoMdMenu} from 'react-icons/io';
 import {IoClose } from 'react-icons/io5';
 import { Link, NavLink } from "react-router-dom";
 import { FcHome } from "react-icons/fc";
 import './Navbar.css'
 import { AuthContext } from "../../../Routes/Context";
+import Aos from 'aos';
+import 'aos/dist/aos.css'
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [showUsername, setShowUsername] = useState(false); 
+
+  useEffect(() => {
+    Aos.init({duration: 1000})
+   },[])
 
   // Using user from AuthContext
   const {user, logOut} = useContext(AuthContext);
@@ -23,7 +30,7 @@ const Navbar = () => {
   }
   
   return (
-    <div className="flex md:flex-row flex-col shadow rounded bg-pink-200 items-center lg:justify-between p-3 w-11/12 gap-3 mt-8 m-auto">
+    <div data-aos="flip-right" className="flex md:flex-row flex-col shadow rounded items-center lg:justify-between p-3 w-11/12 gap-3 mt-8 m-auto">
     <div className="flex justify-between gap-5 lg:gap-96 items-center">
 
     <div className="flex items-center">
@@ -52,9 +59,11 @@ const Navbar = () => {
 
 <NavLink className={({isActive}) => isActive? 'md:text-lg text-base font-semibold text-purple-500' : 'md:text-lg text-base font-semibold'}  to="/update-profile">Update Profile</NavLink>
 
-<NavLink className={({isActive}) => isActive? 'md:text-lg text-base font-semibold text-purple-500' : 'md:text-lg text-base font-semibold'}  to="/our-services">Our Services</NavLink>
+<NavLink className={({isActive}) => isActive? 'md:text-lg text-base font-semibold text-purple-500' : 'md:text-lg text-base font-semibold'}  
+to="/new-features">New Features</NavLink>
 
-<NavLink className={({isActive}) => isActive? 'md:text-lg text-base   font-semibold text-purple-500' : 'md:text-lg text-base font-semibold'}  to="/contact-us">About Us</NavLink>
+<NavLink className={({isActive}) => isActive? 'md:text-lg text-base   font-semibold text-purple-500' : 'md:text-lg text-base font-semibold'}  
+to="/about-us">About Us</NavLink>
         </div>
       </ul>
       </nav>
@@ -67,8 +76,10 @@ const Navbar = () => {
 
       {/* Showing the user image when user is logged in */}
      {
-      user &&  <div className="md:w-16 w-14">
-      <img className="border-2 rounded-full border-blue-600 p-1" src={user?.photoURL || "https://i.ibb.co/FBZQVTZ/defalt.jpg"} />
+      user &&  <div className="md:w-16 w-14"  onMouseEnter={() => setShowUsername(true)}
+      onMouseLeave={() => setShowUsername(false)}>
+      <img className="btn border-2 rounded-full border-blue-600 p-1" src={user?.photoURL || "https://i.ibb.co/FBZQVTZ/defalt.jpg"} />
+      <div  className={`absolute top-full left-0 bg-white shadow p-2 ${showUsername ? 'block' : 'hidden'}`}>{user.displayName}</div>
   </div>
      }
 

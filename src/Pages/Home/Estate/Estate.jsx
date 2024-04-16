@@ -4,18 +4,25 @@ import { BiDollar } from "react-icons/bi";
 import { CiLocationOn } from "react-icons/ci";
 import { FaSquareArrowUpRight } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
+import Aos from 'aos';
+import 'aos/dist/aos.css'
+import { useEffect } from 'react';
 
 const Estate = ({estate}) => {
 
    const {id, estate_title, segment_name, price, status, area, location, image} = estate;
 
+   useEffect(() => {
+    Aos.init({duration: 900})
+   },[])
+
     return (
     
-<div className="lg:mt-6 h-full card shadow-xl w-11/12 m-auto">
+<div data-aos="zoom-in" className="lg:mt-6 h-full card shadow-xl w-11/12 m-auto">
  
- <figure><img className="lg:h-64 h-48 lg:w-72 w-52 m-6 rounded-full bg-slate-400" src={image} alt="" /></figure>
+ <figure><img className="h-auto w-full m-6 rounded-2xl bg-slate-400" src={image} alt="" /></figure>
 
- <div className='py-1 ml-2 text-base text-white font-semibold rounded-xl bg-stone-400 w-28'>{status}</div>
+ <div className='py-1 ml-2 text-base text-white font-semibold rounded-xl bg-purple-600 w-28'>{status}</div>
  <div  className="p-4">
  <h5  className="mb-4 text-[24px] lg:text-[27px] font-bold">{estate_title}</h5>
 
