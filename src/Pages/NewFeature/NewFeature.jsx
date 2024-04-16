@@ -1,6 +1,7 @@
 import Aos from 'aos';
 import 'aos/dist/aos.css'
 import { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const NewFeature = () => {
 
@@ -9,7 +10,12 @@ const NewFeature = () => {
        },[]);
 
     return (
-        <section data-aos="zoom-out" data-aos-anchor-placement="top-center">
+        <section data-aos="zoom-out" data-aos-anchor-placement="top-center" className='mb-10 mt-4'>
+
+<Helmet>
+        <title>Features | Cozy Cottage</title>
+    </Helmet>
+
         <div className="container max-w-xl pt-10 pb-6 mx-auto space-y-12 lg:px-8 lg:max-w-7xl">
         <div>
         <h2 className="text-3xl font-bold text-center sm:text-5xl">New Features</h2>

@@ -1,6 +1,7 @@
 import Aos from 'aos';
 import 'aos/dist/aos.css'
 import { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const AboutUs = () => {
 
@@ -10,8 +11,13 @@ const AboutUs = () => {
 
     return (
     
-      <div data-aos="flip-up" className="items-center max-w-screen-xl px-4 mx-auto lg:grid lg:grid-cols-4 lg:gap-16 xl:gap-24 lg:pt-16 lg:pb-7 pt-10 pb-6 lg:px-6">
+      <div data-aos="flip-up" className="items-center max-w-screen-xl mb-7 px-4 mx-auto lg:grid lg:grid-cols-4 lg:gap-16 xl:gap-24 lg:pt-16 lg:pb-7 pt-10 pb-6 lg:px-6">
       <div className="col-span-2">
+
+      <Helmet>
+        <title>About-us | Cozy Cottage</title>
+    </Helmet>
+
       <p className="text-lg font-medium text-purple-500 dark:text-purple-500">Trusted in Worldwide</p>
       <h2 className="mt-3 mb-4 text-3xl font-extrabold text-gray-900 md:text-3xl dark:text-white">Trusted by over 1 million customers and 100k teams</h2>
       <p className="font-light text-gray-500 sm:text-xl dark:text-gray-400">Our rigorous ensureness and compliance standards

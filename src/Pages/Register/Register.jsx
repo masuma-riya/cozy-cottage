@@ -107,7 +107,7 @@ const Register = () => {
 
     return (
 
-    <div className="flex lg:w-6/12 md:w-8/12 w-11/12 justify-center mt-2 m-auto">
+    <div className="flex lg:w-6/12 md:w-8/12 w-11/12 justify-center mb-8 mt-2 m-auto">
 
       <Helmet>
         <title>Register | Cozy Cottage</title>

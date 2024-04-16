@@ -85,7 +85,7 @@ const Login = () => {
 }
 
     return (
-     <section className="flex flex-col md:flex-row justify-center md:space-x-24 items-center my-2 mx-5 md:mx-0 md:my-0">
+     <section className="flex flex-col md:flex-row justify-center pb-14 md:space-x-24 items-center my-2 mx-5 md:mx-0 md:my-0">
          <Helmet>
         <title>Login | Cozy Cottage</title>
     </Helmet>

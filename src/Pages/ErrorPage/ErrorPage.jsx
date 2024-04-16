@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { GoArrowLeft } from "react-icons/go";
 import 'animate.css';
+import { Helmet } from "react-helmet-async";
 
 const ErrorPage = () => {
     return (
@@ -10,6 +11,10 @@ const ErrorPage = () => {
 <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-500 mt-4">Page Not Found</p>
 <p className="text-gray-500 mt-4 pb-4 border-b-2 text-center">Sorry, the page you are looking for could not be found.</p>
 <a href="#" className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-gray-100 px-4 py-2 mt-6 rounded">
+
+<Helmet>
+        <title>Error | Cozy Cottage</title>
+    </Helmet>
 
 <GoArrowLeft className="text-white text-xl"></GoArrowLeft>
 <Link className="text-lg text-white" to='/'>Back to Home</Link>
