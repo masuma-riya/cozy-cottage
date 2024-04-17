@@ -3,7 +3,7 @@
 Welcome to Cozy Cottage, your premier destination for real estate hospitality properties. Immerse yourself in the charm of our carefully curated selection of cottages and homes.
 
 **Netlify Live Link**: [Cozy Cottage](https://cozy-cottage.netlify.app/)
-**Netlify Live Link**: [Cozy Cottage](https://assignment-nine-e6d58.web.app/)
+**Firebase Live Link**: [Cozy Cottage](https://assignment-nine-e6d58.web.app/)
 
 ## Features
 
