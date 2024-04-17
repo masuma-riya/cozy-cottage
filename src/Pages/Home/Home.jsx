@@ -25,14 +25,14 @@ const Home = () => {
        <i> <h1 className="md:text-2xl animate__animated animate__zoomIn text-lg text-orange-600 font-bold">Welcome to your gateway to exquisite properties and unparalleled hospitality!<br></br>Discover the seamless experiences with our premier real estate and hospitality services.</h1></i>
         <h1 className="text-xl animate__animated animate__zoomIn  font-bold">Let us guide you through a world of elegance, comfort, and unmatched service.<br></br>Your dream destination awaits, right here.</h1>
     
-       <div className="p-2 rounded-3xl shadow-2xl">
+       <div className="p-2 rounded-3xl shadow-2xl w-full">
        <Banner></Banner>
        </div>
 
     <div className="md:pt-9 pt-4" data-aos="flip-left">
        <h1 className="lg:text-5xl md:text-4xl text-3xl font-semibold">VILLAS & RATES</h1>
         <p className="lg:text-2xl md:text-xl text-lg font-semibold text-pink-700 md:mt-6 mt-4">&quot;Your Gateway to Luxury Living & Unforgettable Hospitality!&quot;<br></br>Discover Your Dream Property :)</p>
-        <img className="lg:ml-96 md:ml-28" src={border} alt="" />
+        <img className="ml-auto mr-auto" src={border} alt="" />
     </div>
 
 

@@ -18,7 +18,7 @@ const Estate = ({estate}) => {
 
     return (
     
-<div data-aos="zoom-in" className="lg:mt-6 h-full card shadow-xl w-11/12 m-auto">
+<div data-aos="zoom-in" className="lg:mt-6 h-full card shadow-xl w-full m-auto">
  
  <figure><img className="lg:h-72 md:h-52 w-full m-6 rounded-2xl bg-slate-400" src={image} alt="" /></figure>
 
