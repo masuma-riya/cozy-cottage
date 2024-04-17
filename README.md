@@ -28,13 +28,13 @@ Welcome to Cozy Cottage, your premier destination for real estate hospitality pr
   
 - **Continuous Innovation and Improvement**: We're constantly striving to innovate and improve our platform to better serve our users. Whether it's implementing new features, optimizing performance, or incorporating user feedback, we're dedicated to making Cozy Cottage the best it can be.
 
-## Technologies Used
+## NPM Package Used
 
-- **Swiper Slider**: npm package used for creating dynamic and interactive sliders on the website.
+- **Swiper Slider**: Swiper used for creating dynamic and interactive sliders on the website.
   
-- **Animate.css**: npm package used for adding smooth animations to elements, enhancing user experience.
+- **Animate.css**: It is used for adding smooth animations to elements, enhancing user experience.
   
-- **AOS Package**: npm package used for animating elements as they scroll into view, adding a touch of elegance to the website's design.
+- **AOS Package**: Used for animating elements as they scroll into view, adding a touch of elegance to the website's design.
 
 ## Usage
 
