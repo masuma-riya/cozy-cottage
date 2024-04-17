@@ -13,14 +13,14 @@ const Estate = ({estate}) => {
    const {id, estate_title, segment_name, price, status, area, location, image} = estate;
 
    useEffect(() => {
-    Aos.init({duration: 900})
+    Aos.init({duration: 1000})
    },[])
 
     return (
     
-<div data-aos="zoom-in" className="lg:mt-6 h-full card shadow-xl w-full m-auto">
+<div data-aos="fade-up" className="lg:mt-6 h-full card shadow-xl w-full m-auto">
  
- <figure><img className="lg:h-72 md:h-52 w-full m-6 rounded-2xl bg-slate-400" src={image} alt="" /></figure>
+ <figure><img data-aos="zoom in" className="lg:h-72 md:h-52 w-full m-6 rounded-2xl bg-slate-400" src={image} alt="" /></figure>
 
  <div className='py-1 ml-2 text-base text-white font-semibold rounded-xl bg-purple-600 w-28'>{status}</div>
  <div  className="p-4">

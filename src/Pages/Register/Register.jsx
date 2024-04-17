@@ -6,6 +6,7 @@ import { AuthContext } from '../../Routes/Context';
 import { Helmet } from "react-helmet-async";
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import { toast } from 'react-toastify';
+import 'animate.css';
 
 const Register = () => {
   
@@ -61,7 +62,7 @@ const Register = () => {
     createUser(email, password)
     .then(result =>{
         console.log(result.user);
-        toast.success('Congratulation! Registration Successful :)')
+        toast.success('Congratulation! Registration Successful')
     // Update profile
      updateUserProfile(name, photoURL)
      .then( () => {
@@ -73,7 +74,12 @@ const Register = () => {
     })
     .catch(error => {
       console.error(error);
+     if(error.code === 'auth/email-already-in-use'){
+        setRegisterError('The Email is already Used! Please provide a new Email!')
+     }
+     else{
       setRegisterError(error.message);
+     }
   });
     }
 
@@ -107,7 +113,7 @@ const Register = () => {
 
     return (
 
-    <div className="flex lg:w-6/12 md:w-8/12 w-11/12 justify-center mb-8 mt-2 m-auto">
+    <div className="flex animate__animated animate__slideInRight  lg:w-6/12 md:w-8/12 w-11/12 justify-center mb-8 mt-2 m-auto">
 
       <Helmet>
         <title>Register | Cozy Cottage</title>
