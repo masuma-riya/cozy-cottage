@@ -25,6 +25,7 @@ const Navbar = () => {
   }
   
   return (
+    
     <div className="flex animate__animated animate__pulse md:flex-row flex-col shadow rounded items-center lg:justify-between p-3 w-11/12 gap-3 mt-8 m-auto">
     <div className="flex justify-between gap-5 lg:gap-96 items-center">
 

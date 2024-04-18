@@ -64,7 +64,7 @@ const Home = () => {
     <div className="grid grid-cols-6 gap-3">
     <div className="col-span-4 text-right">
     <p className="md:text-gray-700 font-bold">Many Pickup Location</p>
-    <p className="text-gray-500 mt-4">We have on extensive number of cars that will be available to pick you up from any location throughout the country.</p>
+    <p className="text-gray-500 mt-4">We have extensive number of properties that will be available to book from any location throughout the country.</p>
     </div>
     <div className="col-span-2">
     <img src="https://cdn-icons-png.flaticon.com/512/854/854894.png" />
