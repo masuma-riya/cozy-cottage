@@ -22,8 +22,7 @@ const Home = () => {
         <title>Home | Cozy Cottage</title>
     </Helmet>
 
-       <i> <h1 className="md:text-2xl animate__animated animate__zoomIn text-lg text-orange-600 font-bold">Welcome to your gateway to exquisite properties and unparalleled hospitality!<br></br>Discover the seamless experiences with our premier real estate and hospitality services.</h1></i>
-        <h1 className="text-xl animate__animated animate__zoomIn  font-bold">Let us guide you through a world of elegance, comfort, and unmatched service.<br></br>Your dream destination awaits, right here.</h1>
+<h1 className="lg:text-2xl md:text-xl animate__animated animate__zoomIn text-lg font-bold">Welcome to your gateway to exquisite properties and unparalleled hospitality! Let us guide <br></br> you through a world of Elegance. Your dream destination awaits, right here.</h1>
     
        <div className="p-2 rounded-3xl shadow-2xl w-full">
        <Banner></Banner>
@@ -46,7 +45,7 @@ const Home = () => {
        </div>
 
   {/* Why choose us section */}
-    <div className="md:w-auto mx-auto">
+    <div data-aos="fade-up" className="md:w-auto mx-auto">
     <p className="lg:pt-12 pb-6 lg:text-[44px] text-[33px] font-bold">Why Choose Us?</p>
     <div className="md:flex space-x-4 flex-row items-center bg-white">
     <card className="md:border-indigo-400 md:border md:border-dashed md:hover:border-double md:rounded w-[30rem] p-[23px]">
@@ -94,7 +93,7 @@ const Home = () => {
     <h2 className="mb-32 text-3xl font-bold">
     Meet the <u className="text-primary dark:text-primary-400">team</u>
     </h2>
-    <div className="grid gap-x-6 md:grid-cols-3 lg:gap-x-12">
+    <div data-aos="flip-up" className="grid gap-x-6 md:grid-cols-3 lg:gap-x-12">
     <div className="mb-24 md:mb-0">
     <div className="block h-full rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
     <div className="flex justify-center">

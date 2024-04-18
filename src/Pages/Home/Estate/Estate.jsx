@@ -50,7 +50,7 @@ const Estate = ({estate}) => {
 </div>
 
 <div  className="p-6 pt-0">
-<Link to={`/estate-details/${id}`}><button className="btn w-full bg-neutral-800 text-white md:text-[15px] text-lg lg:text-lg font-semibold hover:bg-neutral-950 rounded-xl">View Property
+<Link to={`/estate-details/${id}`}><button className="btn mt-3 w-full bg-neutral-800 text-white md:text-[15px] text-lg lg:text-lg font-semibold hover:bg-neutral-950 rounded-xl">View Property
 <ImHeart className='text-red-600 md:text-base text-xl lg:text-2xl'></ImHeart>
 </button></Link>
 </div>

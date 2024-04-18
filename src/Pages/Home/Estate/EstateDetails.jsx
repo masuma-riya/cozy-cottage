@@ -23,7 +23,23 @@ import { useEffect } from "react";
      },[]);
 
     return (
- <div data-aos="zoom-in-right" className="md:flex rounded-xl bg-white text-gray-700 shadow-2xl w-11/12 m-auto mt-14 mb-16 flex-row">
+      
+ <div>
+
+   {/* banner */}
+   <div className="hero w-11/12 h-72 m-auto mt-16 rounded-2xl" style={{backgroundImage: `url(${detail.image})`}}>
+  <div className="bg-opacity-60 rounded-2xl"></div>
+  <div className="hero-content text-center text-neutral-content">
+    <div className="max-w-md">
+      <h1 className="mb-5 md:text-5xl text-4xl text-white font-extrabold">{detail.estate_title}</h1>
+     <i> <p className="mb-5 text-white md:text-xl">{detail.description}</p></i>
+      <button className="btn btn-primary">Book now..!</button>
+    </div>
+  </div>
+</div>
+
+{/* details */}
+<div data-aos="zoom-in-right" className="md:flex rounded-xl bg-white text-gray-700 shadow-2xl w-11/12 m-auto mt-14 mb-16 flex-row">
 
 <Helmet>
         <title>Estate-details | Cozy Cottage</title>
@@ -75,6 +91,8 @@ import { useEffect } from "react";
 
     </div>
   </div>
+ </div>
+
     );
 };
 

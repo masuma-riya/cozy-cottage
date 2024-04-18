@@ -1,15 +1,15 @@
 [
     {
       "id": 1,
-      "estate_title": "Beachfront Villa",
-      "segment_name": "Hotels",
-      "description": "Experience ultimate luxury in this stunning beachfront villa with breathtaking ocean views. Experience ultimate luxury in this stunning beachfront villa with breathtaking ocean views.",
+      "estate_title": "Sunny Lake Oasis",
+      "segment_name": "Tourism",
+      "description": "Experience rustic charm and serenity in this cozy cabin retreat surrounded by towering trees.",
       "price": "5,00,000",
-      "status": "RENT",
-      "area": "5000 sq ft",
-      "location": "Malibu, California!",
-      "image": "https://i.ibb.co/WcCfyk1/image7.jpg",
-      "facilities": ["Infinity pool", "Outdoor dining", "Gourmet kitchen", "Spa"]
+      "status": "SALE",
+      "area": "1000 sq ft",
+      "location": "California, Sue!",
+      "image": "https://i.ibb.co/HhTb4yd/image6.jpg",
+      "facilities": ["Wood-burning fireplace", "Outdoor deck", "Hiking trails"]
     },
     {
       "id": 2,
@@ -85,15 +85,15 @@
     },
     {
       "id": 8,
-      "estate_title": "Sunny Lake Oasis",
-      "segment_name": "Tourism",
-      "description": "Experience rustic charm and serenity in this cozy cabin retreat surrounded by towering trees.",
+      "estate_title": "Beachfront Villa",
+      "segment_name": "Hotels",
+      "description": "Experience ultimate luxury in this stunning beachfront villa with breathtaking ocean views. Experience ultimate luxury in this stunning beachfront villa with breathtaking ocean views.",
       "price": "5,00,000",
-      "status": "SALE",
-      "area": "1000 sq ft",
-      "location": "California, Sue!",
-      "image": "https://i.ibb.co/HhTb4yd/image6.jpg",
-      "facilities": ["Wood-burning fireplace", "Outdoor deck", "Hiking trails"]
+      "status": "RENT",
+      "area": "5000 sq ft",
+      "location": "Malibu, California!",
+      "image": "https://i.ibb.co/WcCfyk1/image7.jpg",
+      "facilities": ["Infinity pool", "Outdoor dining", "Gourmet kitchen", "Spa"]
     },
     {
       "id": 9,
